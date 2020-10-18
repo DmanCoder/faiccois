@@ -1,1 +1,63 @@
-// EXAMPLE COMPONENT STYLES
+.navigation {
+  font-size: 1.3rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: transparent;
+  height: 6rem;
+  color: $color__white;
+
+  @extend %mobile-padding;
+
+  ul {
+    width: 100%;
+    @include immaFlex($just: space-between, $align: center);
+
+    li:nth-child(1) {
+      font-family: 'Norican', cursive;
+
+      span {
+        text-align: center;
+        display: block;
+        @include immaFlex($align: center);
+      }
+      span:first-child {
+        font-size: 3.55rem;
+      }
+
+      span:last-child {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        top: -1rem;
+
+        &::before,
+        &::after {
+          content: '';
+          display: inline-block;
+          height: 0.2rem;
+          width: 2rem;
+          background-color: $color__white;
+        }
+
+        &::before {
+          margin-right: 0.4rem;
+        }
+        &::after {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+    li:nth-child(2),
+    li:nth-child(3),
+    li:nth-child(4),
+    li:nth-child(5),
+    li:nth-child(6),
+    li:nth-child(7) {
+      display: none;
+    }
+    li:nth-child(8) {
+    }
+  }
+}

@@ -11,9 +11,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Lato', sans-serif; // BODY COPY
   box-sizing: border-box;
   line-height: 1.5;
   font-weight: 400;
@@ -27,20 +25,15 @@ code {
     monospace;
 }
 
-/* ============================================
-                     HEADERS
-   ============================================ */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* ============================================
-                     LISTS
-   ============================================ */
 ul,
 ol {
   list-style: none;
@@ -49,4 +42,8 @@ ol {
 }
 
 ::selection {
+}
+
+span.icon {
+  font-size: 2.5rem;
 }

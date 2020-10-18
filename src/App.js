@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Navigation from './components/navigation';
+import Banner from './components/banner';
 
 import './styles/main.scss';
 
 function App() {
   return (
-    <div className="">
+    <Fragment>
       <Navigation />
-    </div>
+      <Banner />
+    </Fragment>
   );
 }
 
