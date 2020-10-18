@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  @extend %mont;
 }
 
 ul,
@@ -42,8 +42,4 @@ ol {
 }
 
 ::selection {
-}
-
-span.icon {
-  font-size: 2.5rem;
 }

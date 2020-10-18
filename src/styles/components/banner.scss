@@ -1,8 +1,26 @@
 .banner {
-  // background: linear-gradient(rgba(#000, 0.1), rgba(#000, 0.1)),
-  //   url('../../assets/img/pexels-spencer-selover-428355.jpg');
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // height: 100vh;
+  text-align: center;
+  color: $color__white;
+  @include immaFlex($align: center, $just: center);
+
+  h1 {
+    margin-top: -1rem;
+
+    span {
+      display: block;
+    }
+
+    span:first-child {
+      font-size: 8rem;
+      font-weight: 500;
+      @extend %cursive;
+    }
+
+    span:last-child {
+      letter-spacing: 0.5rem;
+      text-transform: uppercase;
+      margin-top: -1rem;
+      @extend %mont;
+    }
+  }
 }

@@ -11,7 +11,16 @@ function App() {
   return (
     <Fragment>
       <Navigation />
-      <Banner title="" subTitle="" img={img1} />
+      <Banner
+        content={
+          <h1>
+            <span>Faicco's</span>
+            <span>Italian Specialities</span>
+          </h1>
+        }
+        img={img1}
+        height="100"
+      />
     </Fragment>
   );
 }

@@ -14,7 +14,7 @@
     @include immaFlex($just: space-between, $align: center);
 
     li:nth-child(1) {
-      font-family: 'Norican', cursive;
+      @extend %cursive;
 
       span {
         text-align: center;
@@ -29,8 +29,8 @@
         position: relative;
         font-size: 1rem;
         font-weight: 600;
-        font-family: 'Montserrat', sans-serif;
         top: -1rem;
+        @extend %mont;
 
         &::before,
         &::after {
@@ -58,6 +58,9 @@
       display: none;
     }
     li:nth-child(8) {
+      span {
+        font-size: 3rem;
+      }
     }
   }
 }
