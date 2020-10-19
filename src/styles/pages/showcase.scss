@@ -1,0 +1,58 @@
+.showcase {
+  display: none;
+
+  @include mediaQ('>=tablet') {
+    text-align: center;
+    display: block;
+    position: relative;
+    z-index: 20;
+    width: 95%;
+    margin: -9rem auto -3rem;
+    max-width: 111.2rem;
+
+    @include immaFlex($wrap: wrap);
+  }
+
+  &__item {
+    background-color: white;
+    width: 25%;
+    height: 27rem;
+    @include immaFlex($align: center, $just: center, $dir: column);
+  }
+
+  &__item:nth-child(2) {
+    background: url('../../assets/img/pexels-trang-doan-936611.jpg') no-repeat
+      center / cover;
+  }
+  &__item:nth-child(4) {
+    background: url('../../assets/img/pexels-trang-doan-936611.jpg') no-repeat
+      center / cover;
+  }
+  &__item:nth-child(5) {
+    background: url('../../assets/img/pexels-trang-doan-936611.jpg') no-repeat
+      center / cover;
+  }
+  &__item:nth-child(7) {
+    background: url('../../assets/img/pexels-trang-doan-936611.jpg') no-repeat
+      center / cover;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  h6 {
+    color: $color__primary;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+}

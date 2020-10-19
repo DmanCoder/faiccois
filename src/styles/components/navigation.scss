@@ -6,12 +6,17 @@
   background-color: transparent;
   height: 6rem;
   color: $color__white;
+  z-index: 1000;
 
   @extend %mobile-padding;
 
   ul {
     width: 100%;
     @include immaFlex($just: space-between, $align: center);
+    @include mediaQ('>=tablet') {
+      max-width: 111.2rem;
+      margin: 0 auto;
+    }
 
     li:nth-child(1) {
       @extend %cursive;

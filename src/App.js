@@ -4,7 +4,7 @@ import Navigation from './components/navigation';
 import Banner from './components/banner';
 
 import img1 from './assets/img/pizza-3007395_1920.jpg';
-// import img1 from './assets/img/pizza-on-grey.jpg';
+import img2 from './assets/img/pexels-photo-3952043.jpeg';
 // import img1 from './assets/img/pizza-on-grey.jpg';
 
 import './styles/main.scss';
@@ -29,7 +29,7 @@ function App() {
           <h4>Reservations</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-            minima tempora eligendi sunt eius fugit architecto. Sapiente, sequi.
+            minima tempora eligendi sunt eiu.
           </p>
 
           <button>Book A Table</button>
@@ -39,11 +39,86 @@ function App() {
         <div className="about__item">
           <h4>About</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-            minima tempora eligendi sunt eius fugit architecto. Sapiente, sequi.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+            voluptatum odio aliquid, rem sapiente exercitationem eum quas
+            numquam neque ea quo assumenda explicabo, ipsum modi libero ullam
+            eius soluta? Ut? Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Autem voluptatum odio aliquid, rem sapiente exercitationem eum
+            quas numquam neque ea quo assumenda explicabo, ipsum modi libero
+            ullam eius soluta? Ut?
           </p>
         </div>
       </div>
+
+      <Banner
+        extClass="banner-others"
+        content={
+          <h1>
+            <span></span>
+            <span>Italian Specialities</span>
+          </h1>
+        }
+        display="none"
+        img={img2}
+        height="75"
+        y="-6"
+      />
+
+      <div className="showcase">
+        <div className="showcase__item">
+          <h4>Lasagna</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            doloremque cum nobis repellendus laudantium quaerat debitis.
+          </p>
+          <h6>from $15.40</h6>
+        </div>
+        <div className="showcase__item"></div>
+        <div className="showcase__item">
+          <h4>Lasagna</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            doloremque cum nobis repellendus laudantium quaerat debitis.
+          </p>
+          <h6>from $15.40</h6>
+        </div>
+        <div className="showcase__item"></div>
+
+        <div className="showcase__item"></div>
+
+        <div className="showcase__item">
+          <h4>Lasagna</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            doloremque cum nobis repellendus laudantium quaerat debitis.
+          </p>
+          <h6>from $15.40</h6>
+        </div>
+        <div className="showcase__item"></div>
+
+        <div className="showcase__item">
+          <h4>Lasagna</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
+            doloremque cum nobis repellendus laudantium quaerat debitis.
+          </p>
+          <h6>from $15.40</h6>
+        </div>
+      </div>
+
+      <Banner
+        extClass="banner-others"
+        content={
+          <h1>
+            <span></span>
+            <span>Italian Specialities</span>
+          </h1>
+        }
+        display="none"
+        img={img2}
+        height="75"
+        // y="-6"
+      />
 
       <div className="menu">
         <h4>Menu</h4>

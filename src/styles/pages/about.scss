@@ -2,18 +2,59 @@
 .about {
   text-align: center;
 
+  @include mediaQ('>=tablet') {
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    top: -3rem;
+    width: 95%;
+    margin: 0 auto;
+    max-width: 111.2rem;
+    @include immaFlex($wrap: wrap);
+  }
+
   &__item {
     padding: 1.3rem;
 
+    @include mediaQ('>=tablet') {
+      height: 30rem;
+      @include immaFlex($align: center, $just: center, $dir: column);
+    }
+
     p {
-      margin-top: 1rem;
-      margin-bottom: 2rem;
+      // margin-top: 1rem;
+      // margin-bottom: 2rem;
       font-size: 1.3rem;
+      max-width: 65rem;
     }
   }
 
   &__item:nth-child(1) {
-    margin-bottom: 2.4rem;
+    @include mediaQ('>=tablet') {
+      width: 30%;
+    }
+  }
+  &__item:nth-child(2) {
+    @include mediaQ('>=tablet') {
+      width: 70%;
+    }
+  }
+  &__item:nth-child(3) {
+    @include mediaQ('>=tablet') {
+      width: 30%;
+    }
+  }
+  &__item:nth-child(4) {
+    @include mediaQ('>=tablet') {
+      width: 70%;
+    }
+  }
+  &__item:nth-child(1) {
+    // margin-bottom: 2.4rem;
+
+    @include mediaQ('>=tablet') {
+      // margin-bottom: 0;
+    }
 
     button {
       font-size: 1.4rem;
@@ -28,21 +69,30 @@
       @extend %mont;
     }
   }
+
   &__item:nth-child(2) {
-    background: url('../../assets/img/pexels-mat-brown-1395967.jpg') center
-      no-repeat / cover;
+    background: url('../../assets/img/pexels-mat-brown-1395967.jpg') no-repeat
+      center / cover;
+    background-color: pink;
   }
+
   &__item:nth-child(3) {
-    background: url('../../assets/img/pexels-mat-brown-1395964.jpg') center
-      no-repeat / cover;
+    background-color: red;
+    background: url('../../assets/img/pexels-mat-brown-1395964.jpg') no-repeat
+      center / cover;
   }
+
   &__item:nth-child(2),
   &__item:nth-child(3) {
     display: none;
+
+    @include mediaQ('>=tablet') {
+      display: block;
+    }
   }
 
   &__item:nth-child(4) {
-    margin-bottom: 2.4rem;
+    // margin-bottom: 2.4rem;
   }
 
   h4 {
