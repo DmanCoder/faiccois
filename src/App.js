@@ -5,7 +5,7 @@ import Banner from './components/banner';
 
 import img1 from './assets/img/pizza-3007395_1920.jpg';
 import img2 from './assets/img/pexels-photo-3952043.jpeg';
-// import img1 from './assets/img/pizza-on-grey.jpg';
+import img3 from './assets/img/pexels-klayfe-rohden-873653.jpg';
 
 import './styles/main.scss';
 
@@ -111,13 +111,12 @@ function App() {
         content={
           <h1>
             <span></span>
-            <span>Italian Specialities</span>
+            <span>Our specialties</span>
           </h1>
         }
         display="none"
-        img={img2}
+        img={img3}
         height="75"
-        // y="-6"
       />
 
       <div className="menu">
