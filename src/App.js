@@ -44,6 +44,161 @@ function App() {
           </p>
         </div>
       </div>
+
+      <div className="menu">
+        <h4>Menu</h4>
+        <h5>Food & Aperitives</h5>
+        <div className="menu__items">
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Pizza Mexicana</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Pizza Mexicana</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Pizza Quatro Stagioni</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Pizza Quatro formagi</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Pizza Carnivora</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Lasagna</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Lasagna Napolitana</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+          <div className="menu__item">
+            <div className="menu__content">
+              <h6>Other lasagna</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                odit possimus error...........................................
+              </p>
+            </div>
+
+            <span className="menu__price">$17</span>
+          </div>
+        </div>
+        <div className="menu">
+          <h5>Deserts</h5>
+          <div className="menu__items">
+            <div className="menu__item">
+              <div className="menu__content">
+                <h6>Tiramsiu</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                  odit possimus error...........................................
+                </p>
+              </div>
+
+              <span className="menu__price">$17</span>
+            </div>
+            <div className="menu__item">
+              <div className="menu__content">
+                <h6>Cannoli</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                  odit possimus error...........................................
+                </p>
+              </div>
+
+              <span className="menu__price">$17</span>
+            </div>
+            <div className="menu__item">
+              <div className="menu__content">
+                <h6>Double Choco Biscotti</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                  odit possimus error...........................................
+                </p>
+              </div>
+
+              <span className="menu__price">$17</span>
+            </div>
+            <div className="menu__item">
+              <div className="menu__content">
+                <h6>Sicilian Ricotta</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                  odit possimus error...........................................
+                </p>
+              </div>
+
+              <span className="menu__price">$17</span>
+            </div>
+            <div className="menu__item">
+              <div className="menu__content">
+                <h6>Pizzelles</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+                  odit possimus error...........................................
+                </p>
+              </div>
+
+              <span className="menu__price">$17</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 }
