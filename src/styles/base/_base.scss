@@ -16,6 +16,8 @@ body {
   line-height: 1.5;
   font-weight: 400;
   letter-spacing: 0.05rem;
+  color: $color__text;
+  // background-color: $color__bg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,6 +33,7 @@ h3,
 h4,
 h5,
 h6 {
+  color: $color__text--header;
   @extend %mont;
 }
 

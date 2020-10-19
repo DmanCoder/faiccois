@@ -1,0 +1,48 @@
+// EXAMPLE PAGE STYLES
+.about {
+  text-align: center;
+
+  &__item {
+    padding: 1.3rem;
+
+    p {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__item:nth-child(1) {
+    margin-bottom: 2.4rem;
+
+    button {
+      font-size: 1.4rem;
+      color: $color__primary;
+      border: 0.2rem solid rgba($color__primary, 0.45);
+      padding: 1.15rem;
+      width: 100%;
+      letter-spacing: 0.12rem;
+      font-weight: 500;
+      background: none;
+      text-transform: uppercase;
+      @extend %mont;
+    }
+  }
+  &__item:nth-child(2) {
+    background: url('../../assets/img/pexels-mat-brown-1395967.jpg') center
+      no-repeat / cover;
+  }
+  &__item:nth-child(3) {
+    background: url('../../assets/img/pexels-mat-brown-1395964.jpg') center
+      no-repeat / cover;
+  }
+  &__item:nth-child(2),
+  &__item:nth-child(3) {
+    display: none;
+  }
+  // background-color: red;
+  h4 {
+    font-size: 3.2rem;
+    @extend %cursive;
+  }
+}

@@ -1,17 +1,19 @@
 .banner {
   text-align: center;
   color: $color__white;
+  background-attachment: fixed;
   @include immaFlex($align: center, $just: center);
 
   h1 {
     margin-top: -1rem;
+    color: $color__white;
 
     span {
       display: block;
     }
 
     span:first-child {
-      font-size: 8rem;
+      font-size: 7.5rem;
       font-weight: 500;
       @extend %cursive;
     }
