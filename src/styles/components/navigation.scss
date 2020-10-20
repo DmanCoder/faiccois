@@ -13,9 +13,9 @@
   ul {
     width: 100%;
     @include immaFlex($just: space-between, $align: center);
-    @include mediaQ('>=tablet') {
-      max-width: 111.2rem;
-      margin: 0 auto;
+    @include mediaQ('>=desktop') {
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
 
     li:nth-child(1) {
@@ -54,6 +54,11 @@
         }
       }
     }
+    li:nth-child(2) {
+      @include mediaQ('>=desktop') {
+        margin-left: auto;
+      }
+    }
     li:nth-child(2),
     li:nth-child(3),
     li:nth-child(4),
@@ -61,8 +66,39 @@
     li:nth-child(6),
     li:nth-child(7) {
       display: none;
+      @extend %mont;
+      @include mediaQ('>=desktop') {
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 1rem;
+        font-size: 1.45rem;
+        position: relative;
+        @include immaFlex($align: center);
+        &:not(:nth-child(7)) {
+          margin-right: 4rem;
+        }
+        &:nth-child(7) {
+          margin-right: -1rem;
+          opacity: 0.75;
+        }
+
+        &:not(:nth-child(7))::after {
+          content: '';
+          background-color: $color__white;
+          display: inline-block;
+          width: 0.7rem;
+          height: 0.7rem;
+          position: absolute;
+          border-radius: 100%;
+          right: -2rem;
+          opacity: 0.75;
+        }
+      }
     }
     li:nth-child(8) {
+      @include mediaQ('>=desktop') {
+        display: none;
+      }
       span {
         font-size: 3rem;
       }
