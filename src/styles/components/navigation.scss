@@ -1,6 +1,6 @@
 .navigation {
   font-size: 1.3rem;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   background-color: transparent;
@@ -16,6 +16,10 @@
     @include mediaQ('>=desktop') {
       padding-left: 5rem;
       padding-right: 5rem;
+    }
+
+    li {
+      cursor: pointer;
     }
 
     li:nth-child(1) {
