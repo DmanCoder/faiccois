@@ -1,13 +1,15 @@
 .menu {
   text-align: center;
   padding: 1.3rem;
+  position: relative;
 
-  @include mediaQ('>=tablet') {
-    max-width: 111.2rem;
-    margin: 12rem auto 0;
-  }
+  margin-top: 15rem;
 
   &__items {
+    @include mediaQ('>=tablet') {
+      max-width: 111.2rem;
+      margin: 12rem auto 0;
+    }
     @include mediaQ('>=tablet') {
       @include immaFlex($wrap: wrap);
     }
@@ -29,7 +31,9 @@
 
     @include mediaQ('>=tablet') {
       width: 50%;
-      padding: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin-bottom: 1.5rem;
 
       @include immaFlex($align: center, $just: center);
     }
@@ -101,6 +105,60 @@
 
   p {
     font-size: 1.3rem;
+  }
+
+  // DISPLAY IMAGE
+
+  &__img1,
+  &__img2,
+  &__img3 {
+    display: none;
+    @include mediaQ('>=desktop') {
+      display: block;
+    }
+  }
+
+  &__img1 {
+    width: 30rem;
+    display: block;
+    position: absolute;
+    right: -7.8rem;
+    top: -6rem;
+  }
+
+  &__leaf1 {
+    width: 8rem;
+    top: -3rem;
+    right: 19.2rem;
+    z-index: -1;
+  }
+  &__leaf2 {
+    width: 11rem;
+    top: 9rem;
+    right: 21.2rem;
+    z-index: -1;
+  }
+  &__leaf3 {
+    width: 6.5rem;
+    top: 20rem;
+    right: 14.2rem;
+    z-index: -1;
+  }
+
+  &__img2 {
+    width: 36rem;
+    display: block;
+    position: absolute;
+    right: 163rem;
+    top: 39rem;
+  }
+
+  &__img3 {
+    width: 70rem;
+    display: block;
+    position: absolute;
+    right: -13rem;
+    top: 130rem;
   }
 }
 

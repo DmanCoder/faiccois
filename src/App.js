@@ -3,9 +3,16 @@ import React, { Fragment } from 'react';
 import Navigation from './components/navigation';
 import Banner from './components/banner';
 
+// BG IMAGES
 import img1 from './assets/img/pexels-ray-piedra-1565982.jpg';
 import img2 from './assets/img/pexels-photo-3952043.jpeg';
 import img3 from './assets/img/pexels-klayfe-rohden-873653.jpg';
+
+// ANIMATION IMGS
+import paster from './assets/img/plate-of-paster.png';
+import garnish from './assets/img/leaf.png';
+import tomato from './assets/img/tomato.png';
+import pastaFork from './assets/img/pasta-fork.png';
 
 import './styles/main.scss';
 
@@ -289,6 +296,27 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* FOOD DISPLAY (ANIMATED) */}
+        <img className="menu__img1" src={paster} alt="Plate of paster" />
+        <img
+          className="menu__img1 menu__leaf1"
+          src={garnish}
+          alt="Leaf garnish"
+        />
+        <img
+          className="menu__img1 menu__leaf2"
+          src={garnish}
+          alt="Leaf garnish"
+        />
+        <img
+          className="menu__img1 menu__leaf3"
+          src={garnish}
+          alt="Leaf garnish"
+        />
+
+        <img className="menu__img2" src={tomato} alt="Plate of paster" />
+        <img className="menu__img3" src={pastaFork} alt="Plate of paster" />
       </div>
     </Fragment>
   );
