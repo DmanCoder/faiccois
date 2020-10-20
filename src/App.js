@@ -122,6 +122,7 @@ function App() {
       <div className="menu">
         <h4>Menu</h4>
         <h5>Food & Aperitives</h5>
+
         <div className="menu__items">
           <div className="menu__item">
             <div className="menu__content">
@@ -183,6 +184,7 @@ function App() {
 
             <span className="menu__price">$17</span>
           </div>
+
           <div className="menu__item">
             <div className="menu__content">
               <h6>Lasagna</h6>
@@ -222,7 +224,7 @@ function App() {
           <div className="menu__item"></div>
         </div>
 
-        <div className="menu menu-margin">
+        <div className="menu-margin">
           <h5>Deserts</h5>
           <div className="menu__items">
             <div className="menu__item">
