@@ -3,7 +3,9 @@
   padding: 1.3rem;
   position: relative;
 
-  margin-top: 15rem;
+  @include mediaQ('>=tablet') {
+    margin-top: 15rem;
+  }
 
   &__items {
     @include mediaQ('>=tablet') {
@@ -109,15 +111,6 @@
 
   // DISPLAY IMAGE
 
-  &__img1,
-  &__img2,
-  &__img3 {
-    display: none;
-    @include mediaQ('>=desktop') {
-      display: block;
-    }
-  }
-
   &__img1 {
     width: 30rem;
     display: block;
@@ -149,7 +142,7 @@
     width: 36rem;
     display: block;
     position: absolute;
-    right: 163rem;
+    left: 0;
     top: 39rem;
   }
 
@@ -159,6 +152,15 @@
     position: absolute;
     right: -13rem;
     top: 130rem;
+  }
+
+  &__img1,
+  &__img2,
+  &__img3 {
+    display: none;
+    @include mediaQ('>=desktop') {
+      display: block;
+    }
   }
 }
 

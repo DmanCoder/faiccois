@@ -316,6 +316,7 @@ function App() {
         />
 
         <img className="menu__img2" src={tomato} alt="Plate of paster" />
+
         <img className="menu__img3" src={pastaFork} alt="Plate of paster" />
       </div>
     </Fragment>
