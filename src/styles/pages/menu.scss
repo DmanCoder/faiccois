@@ -28,6 +28,9 @@
     }
   }
   &__content {
+    @include mediaQ('>=tablet') {
+      text-align: left;
+    }
   }
   &__price {
     display: inline-block;
@@ -39,8 +42,7 @@
       font-size: 4rem;
       position: relative;
       top: 1.8rem;
-      margin-left: 2rem;
-      text-align: left;
+      // margin-left: 2rem;
     }
   }
 
@@ -48,6 +50,9 @@
     font-size: 3.2rem;
 
     @extend %cursive;
+    @include mediaQ('>=tablet') {
+      font-size: 4rem;
+    }
 
     &::after {
       content: '';
@@ -64,6 +69,10 @@
     color: $color__text;
     text-transform: uppercase;
     font-size: 1.5rem;
+
+    @include mediaQ('>=tablet') {
+      font-size: 2rem;
+    }
   }
 
   h6 {
@@ -73,6 +82,9 @@
     text-transform: uppercase;
     font-size: 1.4rem;
     font-weight: 800;
+    @include mediaQ('>=tablet') {
+      font-size: 1.5rem;
+    }
   }
 
   p {
@@ -81,5 +93,6 @@
 }
 
 .menu-margin {
-  margin-top: 0;
+  margin-top: -3rem;
+  margin-bottom: 10rem;
 }

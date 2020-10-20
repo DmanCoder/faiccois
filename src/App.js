@@ -219,6 +219,7 @@ function App() {
 
             <span className="menu__price">$17</span>
           </div>
+          <div className="menu__item"></div>
         </div>
 
         <div className="menu menu-margin">
