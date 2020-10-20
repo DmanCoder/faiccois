@@ -10,7 +10,7 @@
   &__items {
     @include mediaQ('>=tablet') {
       max-width: 111.2rem;
-      margin: 12rem auto 0;
+      margin: 0 auto 0;
     }
     @include mediaQ('>=tablet') {
       @include immaFlex($wrap: wrap);
@@ -90,6 +90,8 @@
 
     @include mediaQ('>=tablet') {
       font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 5rem;
     }
   }
 
@@ -139,15 +141,15 @@
   }
 
   &__img2 {
-    width: 36rem;
+    width: 32rem;
     display: block;
     position: absolute;
-    left: 0;
+    left: -12rem;
     top: 39rem;
   }
 
   &__img3 {
-    width: 70rem;
+    width: 60rem;
     display: block;
     position: absolute;
     right: -13rem;

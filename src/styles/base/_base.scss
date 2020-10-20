@@ -17,7 +17,8 @@ body {
   font-weight: 400;
   letter-spacing: 0.05rem;
   color: $color__text;
-  // background-color: $color__bg;
+  background-color: $color__bg;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

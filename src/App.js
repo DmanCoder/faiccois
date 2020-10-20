@@ -73,7 +73,7 @@ function App() {
 
       <div className="showcase">
         <div className="showcase__item">
-          <h4>Lasagna</h4>
+          <h4>Crostata</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
             doloremque cum nobis repellendus laudantium quaerat debitis.
@@ -82,7 +82,7 @@ function App() {
         </div>
         <div className="showcase__item"></div>
         <div className="showcase__item">
-          <h4>Lasagna</h4>
+          <h4>Semifreddo</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
             doloremque cum nobis repellendus laudantium quaerat debitis.
@@ -94,7 +94,7 @@ function App() {
         <div className="showcase__item"></div>
 
         <div className="showcase__item">
-          <h4>Lasagna</h4>
+          <h4>Bruschetta</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
             doloremque cum nobis repellendus laudantium quaerat debitis.
@@ -104,7 +104,7 @@ function App() {
         <div className="showcase__item"></div>
 
         <div className="showcase__item">
-          <h4>Lasagna</h4>
+          <h4>Panzenella</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
             doloremque cum nobis repellendus laudantium quaerat debitis.

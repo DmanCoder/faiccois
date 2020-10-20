@@ -33,7 +33,7 @@
       span:first-child {
         font-size: 3.56rem;
         @include mediaQ('>=desktop') {
-          font-size: 5.2rem;
+          font-size: 4.5rem;
         }
       }
 
@@ -45,8 +45,8 @@
         text-transform: uppercase;
         @extend %mont;
         @include mediaQ('>=desktop') {
-          font-size: 1.25rem;
-          margin-top: -0.7rem;
+          font-size: 1.15rem;
+          margin-top: -0.4rem;
         }
 
         &::before,
@@ -83,7 +83,7 @@
         text-transform: uppercase;
         display: inline-block;
         padding: 1rem;
-        font-size: 1.45rem;
+        font-size: 1.3rem;
         position: relative;
         @include immaFlex($align: center);
         &:not(:nth-child(7)) {
@@ -98,8 +98,8 @@
           content: '';
           background-color: $color__white;
           display: inline-block;
-          width: 0.7rem;
-          height: 0.7rem;
+          width: 0.6rem;
+          height: 0.6rem;
           position: absolute;
           border-radius: 100%;
           right: -2rem;
