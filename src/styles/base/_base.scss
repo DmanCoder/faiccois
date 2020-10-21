@@ -10,6 +10,10 @@ html {
   font-size: 62.5%; // DEFINES WHAT 1 REM IS E.G. 1REM === 10PX
 }
 
+html,
+body {
+}
+
 body {
   font-family: 'Lato', sans-serif; // BODY COPY
   box-sizing: border-box;
@@ -18,8 +22,9 @@ body {
   letter-spacing: 0.05rem;
   color: $color__text;
   background-color: $color__bg;
+  height: auto;
   overflow-x: hidden;
-  // overflow-y: hidden;
+  overflow-y: hidden;
   visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

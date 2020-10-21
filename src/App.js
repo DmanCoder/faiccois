@@ -20,53 +20,11 @@ import './styles/main.scss';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function debounce(fn, ms) {
-  let timer;
-  return () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      timer = null;
-      fn.apply(this, arguments);
-    }, ms);
-  };
-}
-
-const viewPortAnimation = (dimensions) => {
-  // viewport animations
-  if (dimensions.width >= 726) {
-    // desktop animations
-  } else {
-    // mobile animations
-  }
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 };
 
 const App = () => {
-  const [dimensions, setDimensions] = React.useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
-
-  useEffect(() => {
-    // prevents flashing
-    gsap.to('body', 0, { css: { visibility: 'visible' } });
-
-    // handles resize
-    const debouncedHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, 1000);
-
-    window.addEventListener('resize', debouncedHandleResize);
-
-    viewPortAnimation(dimensions);
-
-    return () => {
-      window.removeEventListener('resize', debouncedHandleResize);
-    };
-  });
-
   // Time lines
   const introTL = gsap.timeline();
 
@@ -96,7 +54,13 @@ const App = () => {
   let aniTomatoIMG = useRef();
   let aniForkIMG = useRef();
 
+  // useEffect(() => {
+  //   window.focus();
+  //   window.scrollTo(0, 0);
+  // });
+
   useEffect(() => {
+    gsap.to('body', { visibility: 'visible' });
     introTL
       .from(aniIntroText.current, {
         delay: 1,
@@ -122,9 +86,9 @@ const App = () => {
       });
 
     gsap.from(aniAbout.current, {
-      duration: 0.5,
+      duration: 1,
       y: 250,
-      stagger: { amount: 0.18 },
+      stagger: { amount: 0.3 },
       scrollTrigger: {
         trigger: '.about',
         id: 'about',
@@ -137,7 +101,7 @@ const App = () => {
     gsap.utils.toArray(aniShowCase.current).forEach((el, index) => {
       if (index === 0) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.6,
           y: -50,
@@ -153,7 +117,7 @@ const App = () => {
       }
       if (index === 1 || index === 2) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.7,
           y: -50,
@@ -169,7 +133,7 @@ const App = () => {
       }
       if (index === 5 || index === 6) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.8,
           y: 50,
@@ -185,7 +149,7 @@ const App = () => {
       }
       if (index === 4) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.5,
           y: 50,
@@ -201,7 +165,7 @@ const App = () => {
       }
       if (index === 7) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.5,
           y: 50,
@@ -218,7 +182,7 @@ const App = () => {
 
       if (index === 3) {
         gsap.from(el, {
-          duration: 0.3,
+          duration: 0.35,
           opacity: 0,
           delay: 0.9,
           y: -50,
