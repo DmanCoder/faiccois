@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import Navigation from './components/navigation';
 import Banner from './components/banner';
 
@@ -15,6 +17,8 @@ import tomato from './assets/img/tomato.png';
 import pastaFork from './assets/img/pasta-fork.png';
 
 import './styles/main.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function debounce(fn, ms) {
   let timer;
@@ -65,11 +69,14 @@ const App = () => {
 
   // Time lines
   const introTL = gsap.timeline();
-  const bannerTL = gsap.timeline();
 
   // Animate intro
   let aniIntroText = useRef(null);
   let aniIntroLayer = useRef(null);
+
+  // Scroll animation about section
+  let aniAbout = useRef([]);
+  let aniShowCase = useRef([]);
 
   // Animate banner
   let aniBannerText = useRef([]);
@@ -80,6 +87,7 @@ const App = () => {
         delay: 1,
         duration: 1.3,
         opacity: 0,
+        height: 0,
         ease: 'sine.out',
       })
       .to(aniIntroText.current, {
@@ -89,14 +97,132 @@ const App = () => {
         ease: 'sine.out',
       })
       .to(aniIntroLayer.current, { duration: 1, autoAlpha: 0 })
-      .to('body', { overflowY: 'auto' });
+      .to('body', { delay: -1, overflowY: 'auto' })
+      .from(aniBannerText.current, {
+        delay: -1,
+        duration: 0.8,
+        y: 20,
+        opacity: 0,
+        stagger: { amount: 0.25 },
+      });
 
-    bannerTL.from(aniBannerText.current, {
-      delay: 5,
-      duration: 0.8,
-      y: 20,
-      opacity: 0,
-      stagger: { amount: 0.25 },
+    gsap.from(aniAbout.current, {
+      duration: 0.5,
+      y: 250,
+      stagger: { amount: 0.18 },
+      scrollTrigger: {
+        markers: true,
+        trigger: '.about',
+        id: 'about',
+        start: 'top bottom-=150px',
+        ease: 'sine.out',
+      },
+    });
+
+    gsap.utils.toArray(aniShowCase.current).forEach((el, index) => {
+      if (index === 0) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.6,
+          y: -50,
+          x: -50,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
+      if (index === 1 || index === 2) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.7,
+          y: -50,
+          x: 0,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
+      if (index === 5 || index === 6) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.8,
+          y: 50,
+          x: 0,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
+      if (index === 4) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.5,
+          y: 50,
+          x: -50,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
+      if (index === 7) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.5,
+          y: 50,
+          x: 50,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
+
+      if (index === 3) {
+        gsap.from(el, {
+          duration: 0.3,
+          opacity: 0,
+          delay: 0.9,
+          y: -50,
+          x: 50,
+          stagger: { amount: 0.18 },
+          scrollTrigger: {
+            markers: true,
+            trigger: '.showcase',
+            id: 'about',
+            start: 'top bottom-=150px',
+            ease: 'sine.out',
+          },
+        });
+      }
     });
   });
 
@@ -120,7 +246,7 @@ const App = () => {
       />
 
       <div className="about">
-        <div className="about__item">
+        <div ref={(el) => aniAbout.current.push(el)} className="about__item">
           <h4>Reservations</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
@@ -129,9 +255,15 @@ const App = () => {
 
           <button>Book A Table</button>
         </div>
-        <div className="about__item"></div>
-        <div className="about__item"></div>
-        <div className="about__item">
+        <div
+          ref={(el) => aniAbout.current.push(el)}
+          className="about__item"
+        ></div>
+        <div
+          ref={(el) => aniAbout.current.push(el)}
+          className="about__item"
+        ></div>
+        <div ref={(el) => aniAbout.current.push(el)} className="about__item">
           <h4>About</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
@@ -160,7 +292,10 @@ const App = () => {
       />
 
       <div className="showcase">
-        <div className="showcase__item">
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        >
           <h4>Crostata</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
@@ -168,8 +303,14 @@ const App = () => {
           </p>
           <h6>from $15.40</h6>
         </div>
-        <div className="showcase__item"></div>
-        <div className="showcase__item">
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        ></div>
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        >
           <h4>Semifreddo</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
@@ -177,11 +318,20 @@ const App = () => {
           </p>
           <h6>from $15.40</h6>
         </div>
-        <div className="showcase__item"></div>
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        ></div>
 
-        <div className="showcase__item"></div>
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        ></div>
 
-        <div className="showcase__item">
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        >
           <h4>Bruschetta</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
@@ -189,9 +339,15 @@ const App = () => {
           </p>
           <h6>from $15.40</h6>
         </div>
-        <div className="showcase__item"></div>
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        ></div>
 
-        <div className="showcase__item">
+        <div
+          ref={(el) => aniShowCase.current.push(el)}
+          className="showcase__item"
+        >
           <h4>Panzenella</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
