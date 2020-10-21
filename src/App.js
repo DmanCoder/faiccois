@@ -81,6 +81,15 @@ const App = () => {
   // Animate banner
   let aniBannerText = useRef([]);
 
+  // Animate Menu
+  let aniMenuTitle = useRef();
+  let aniMenuSubTitle = useRef();
+  let aniMenuItemsLeft = useRef([]);
+  let aniMenuItemsRight = useRef([]);
+  let aniMenuSubTitle2 = useRef();
+  let aniMenuItemsLeft2 = useRef([]);
+  let aniMenuItemsRight2 = useRef([]);
+
   useEffect(() => {
     introTL
       .from(aniIntroText.current, {
@@ -111,7 +120,6 @@ const App = () => {
       y: 250,
       stagger: { amount: 0.18 },
       scrollTrigger: {
-        markers: true,
         trigger: '.about',
         id: 'about',
         start: 'top bottom-=150px',
@@ -119,6 +127,7 @@ const App = () => {
       },
     });
 
+    // Showcase animations
     gsap.utils.toArray(aniShowCase.current).forEach((el, index) => {
       if (index === 0) {
         gsap.from(el, {
@@ -129,7 +138,6 @@ const App = () => {
           x: -50,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -146,7 +154,6 @@ const App = () => {
           x: 0,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -163,7 +170,6 @@ const App = () => {
           x: 0,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -180,7 +186,6 @@ const App = () => {
           x: -50,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -197,7 +202,6 @@ const App = () => {
           x: 50,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -215,7 +219,6 @@ const App = () => {
           x: 50,
           stagger: { amount: 0.18 },
           scrollTrigger: {
-            markers: true,
             trigger: '.showcase',
             id: 'about',
             start: 'top bottom-=150px',
@@ -224,6 +227,61 @@ const App = () => {
         });
       }
     });
+
+    // Menu animations
+    gsap.from(aniMenuTitle.current, {
+      duration: 0.5,
+      opacity: 0,
+      y: 80,
+      scrollTrigger: {
+        id: 'Menu',
+        trigger: aniMenuItemsLeft.current,
+        start: 'top center+=500px',
+        ease: 'sine.out',
+      },
+    });
+
+    gsap.from(
+      [
+        aniMenuSubTitle.current,
+        aniMenuItemsLeft.current,
+        aniMenuItemsRight.current,
+      ],
+      {
+        delay: 0.6,
+        duration: 0.5,
+        opacity: 0,
+        y: 100,
+        stagger: { amount: 0.3 },
+        scrollTrigger: {
+          id: 'menu-items',
+          trigger: aniMenuItemsLeft.current,
+          start: 'top bottom+=80px',
+          ease: 'sine.out',
+        },
+      }
+    );
+
+    gsap.from(
+      [
+        aniMenuSubTitle2.current,
+        aniMenuItemsLeft2.current,
+        aniMenuItemsRight2.current,
+      ],
+      {
+        opacity: 0,
+        delay: 0.6,
+        duration: 0.5,
+        y: 100,
+        stagger: { amount: 0.3 },
+        scrollTrigger: {
+          id: 'menu-items',
+          trigger: aniMenuItemsLeft2.current,
+          start: 'top bottom+=80px',
+          ease: 'sine.out',
+        },
+      }
+    );
   });
 
   return (
@@ -371,11 +429,14 @@ const App = () => {
       />
 
       <div className="menu">
-        <h4>Menu</h4>
-        <h5>Food & Aperitives</h5>
+        <h4 ref={aniMenuTitle}>Menu</h4>
+        <h5 ref={aniMenuSubTitle}>Food & Aperitives</h5>
 
         <div className="menu__items">
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsLeft.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Pizza Mexicana</h6>
               <p>
@@ -387,7 +448,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsRight.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Pizza Mexicana</h6>
               <p>
@@ -399,7 +463,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsLeft.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Pizza Quatro Stagioni</h6>
               <p>
@@ -411,7 +478,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsRight.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Pizza Quatro formagi</h6>
               <p>
@@ -423,7 +493,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsLeft.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Pizza Carnivora</h6>
               <p>
@@ -436,7 +509,10 @@ const App = () => {
             <span className="menu__price">$17</span>
           </div>
 
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsRight.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Lasagna</h6>
               <p>
@@ -448,7 +524,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsLeft.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Lasagna Napolitana</h6>
               <p>
@@ -460,7 +539,10 @@ const App = () => {
 
             <span className="menu__price">$17</span>
           </div>
-          <div className="menu__item">
+          <div
+            ref={(el) => aniMenuItemsRight.current.push(el)}
+            className="menu__item"
+          >
             <div className="menu__content">
               <h6>Other lasagna</h6>
               <p>
@@ -476,9 +558,12 @@ const App = () => {
         </div>
 
         <div className="menu-margin">
-          <h5>Deserts</h5>
+          <h5 ref={aniMenuSubTitle2}>Deserts</h5>
           <div className="menu__items">
-            <div className="menu__item">
+            <div
+              ref={(el) => aniMenuItemsLeft2.current.push(el)}
+              className="menu__item"
+            >
               <div className="menu__content">
                 <h6>Tiramsiu</h6>
                 <p>
@@ -490,7 +575,10 @@ const App = () => {
 
               <span className="menu__price">$17</span>
             </div>
-            <div className="menu__item">
+            <div
+              ref={(el) => aniMenuItemsRight2.current.push(el)}
+              className="menu__item"
+            >
               <div className="menu__content">
                 <h6>Cannoli</h6>
                 <p>
@@ -502,7 +590,10 @@ const App = () => {
 
               <span className="menu__price">$17</span>
             </div>
-            <div className="menu__item">
+            <div
+              ref={(el) => aniMenuItemsLeft2.current.push(el)}
+              className="menu__item"
+            >
               <div className="menu__content">
                 <h6>Double Choco Biscotti</h6>
                 <p>
@@ -514,7 +605,10 @@ const App = () => {
 
               <span className="menu__price">$17</span>
             </div>
-            <div className="menu__item">
+            <div
+              ref={(el) => aniMenuItemsRight2.current.push(el)}
+              className="menu__item"
+            >
               <div className="menu__content">
                 <h6>Sicilian Ricotta</h6>
                 <p>
@@ -526,7 +620,10 @@ const App = () => {
 
               <span className="menu__price">$17</span>
             </div>
-            <div className="menu__item">
+            <div
+              ref={(el) => aniMenuItemsLeft2.current.push(el)}
+              className="menu__item"
+            >
               <div className="menu__content">
                 <h6>Pizzelles</h6>
                 <p>
