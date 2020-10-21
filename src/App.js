@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-
+import React, { useState, useEffect, useRef, Fragment } from 'react';
+import gsap from 'gsap';
 import Navigation from './components/navigation';
 import Banner from './components/banner';
 
@@ -16,15 +16,103 @@ import pastaFork from './assets/img/pasta-fork.png';
 
 import './styles/main.scss';
 
-function App() {
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
+const viewPortAnimation = (dimensions) => {
+  // viewport animations
+  if (dimensions.width >= 726) {
+    // desktop animations
+  } else {
+    // mobile animations
+  }
+};
+
+const App = () => {
+  const [dimensions, setDimensions] = React.useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    // prevents flashing
+    gsap.to('body', 0, { css: { visibility: 'visible' } });
+
+    // handles resize
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, 1000);
+
+    window.addEventListener('resize', debouncedHandleResize);
+
+    viewPortAnimation(dimensions);
+
+    return () => {
+      window.removeEventListener('resize', debouncedHandleResize);
+    };
+  });
+
+  // Time lines
+  const introTL = gsap.timeline();
+  const bannerTL = gsap.timeline();
+
+  // Animate intro
+  let aniIntroText = useRef(null);
+  let aniIntroLayer = useRef(null);
+
+  // Animate banner
+  let aniBannerText = useRef([]);
+
+  useEffect(() => {
+    introTL
+      .from(aniIntroText.current, {
+        delay: 1,
+        duration: 1.3,
+        opacity: 0,
+        ease: 'sine.out',
+      })
+      .to(aniIntroText.current, {
+        delay: 0.8,
+        duration: 1.3,
+        autoAlpha: 0,
+        ease: 'sine.out',
+      })
+      .to(aniIntroLayer.current, { duration: 1, autoAlpha: 0 })
+      .to('body', { overflowY: 'auto' });
+
+    bannerTL.from(aniBannerText.current, {
+      delay: 5,
+      duration: 0.8,
+      y: 20,
+      opacity: 0,
+      stagger: { amount: 0.25 },
+    });
+  });
+
   return (
     <Fragment>
       <Navigation />
+      <div ref={aniIntroLayer} className="intro-layer">
+        <span ref={aniIntroText}>Welcome</span>
+      </div>
       <Banner
         content={
           <h1>
-            <span>Faicco's</span>
-            <span>Italian Specialities</span>
+            <span ref={(el) => aniBannerText.current.push(el)}>Faicco's</span>
+            <span ref={(el) => aniBannerText.current.push(el)}>
+              Italian Specialities
+            </span>
           </h1>
         }
         img={img1}
@@ -321,6 +409,6 @@ function App() {
       </div>
     </Fragment>
   );
-}
+};
 
 export default App;

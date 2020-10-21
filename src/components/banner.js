@@ -10,7 +10,6 @@ const Banner = ({ content, img, height, y, extClass }) => {
     position: 'relative',
     top: `${y}rem`,
   };
-  console.log(style);
 
   return (
     <div className={`banner ${extClass}`} style={style}>

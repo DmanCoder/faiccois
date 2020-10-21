@@ -19,6 +19,8 @@ body {
   color: $color__text;
   background-color: $color__bg;
   overflow-x: hidden;
+  overflow-y: hidden;
+  visibility: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,4 +55,7 @@ ol {
 ::selection {
   background-color: #f98d93;
   color: white;
+}
+
+::-webkit-scrollbar-track {
 }
