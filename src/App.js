@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navigation from './components/navigation';
 import Banner from './components/banner';
+import { introAnimation } from './animations/introAnimation';
+import { aboutAnimation } from './animations/aboutAnimation';
+import { showcaseAnimation } from './animations/showcaseAnimation';
+import { menuAnimations } from './animations/menuAnimations';
+import { menuImagesAnimation } from './animations/menuImagesAnimation';
 
 // BG IMAGES
 import img1 from './assets/img/pexels-ray-piedra-1565982.jpg';
@@ -18,26 +22,21 @@ import pastaFork from './assets/img/pasta-fork.png';
 
 import './styles/main.scss';
 
-gsap.registerPlugin(ScrollTrigger);
-
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
 
 const App = () => {
-  // Time lines
-  const introTL = gsap.timeline();
-
   // Animate intro
   let aniIntroText = useRef(null);
   let aniIntroLayer = useRef(null);
-
-  // Scroll animation about section
-  let aniAbout = useRef([]);
-  let aniShowCase = useRef([]);
-
-  // Animate banner
   let aniBannerText = useRef([]);
+
+  // About animation
+  let aniAbout = useRef([]);
+
+  // Showcase Animation
+  let aniShowCase = useRef([]);
 
   // Animate Menu
   let aniMenuTitle = useRef();
@@ -54,240 +53,24 @@ const App = () => {
   let aniTomatoIMG = useRef();
   let aniForkIMG = useRef();
 
-  // useEffect(() => {
-  //   window.focus();
-  //   window.scrollTo(0, 0);
-  // });
-
   useEffect(() => {
-    gsap.to('body', { visibility: 'visible' });
-    introTL
-      .from(aniIntroText.current, {
-        delay: 1,
-        duration: 1.3,
-        opacity: 0,
-        height: 0,
-        ease: 'sine.out',
-      })
-      .to(aniIntroText.current, {
-        delay: 0.8,
-        duration: 1.3,
-        autoAlpha: 0,
-        ease: 'sine.out',
-      })
-      .to(aniIntroLayer.current, { duration: 1, autoAlpha: 0 })
-      .to('body', { delay: -1, overflowY: 'auto' })
-      .from(aniBannerText.current, {
-        delay: -1,
-        duration: 0.8,
-        y: 20,
-        opacity: 0,
-        stagger: { amount: 0.25 },
-      });
-
-    gsap.from(aniAbout.current, {
-      duration: 1,
-      y: 250,
-      stagger: { amount: 0.3 },
-      scrollTrigger: {
-        trigger: '.about',
-        id: 'about',
-        start: 'top bottom-=150px',
-        ease: 'sine.out',
-      },
+    introAnimation({ aniIntroText, aniIntroLayer, aniBannerText });
+    aboutAnimation({ aniAbout });
+    showcaseAnimation({ aniShowCase });
+    menuAnimations({
+      aniMenuTitle,
+      aniMenuSubTitle,
+      aniMenuItemsLeft,
+      aniMenuItemsRight,
+      aniMenuSubTitle2,
+      aniMenuItemsLeft2,
+      aniMenuItemsRight2,
     });
-
-    // Showcase animations
-    gsap.utils.toArray(aniShowCase.current).forEach((el, index) => {
-      if (index === 0) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.6,
-          y: -50,
-          x: -50,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-      if (index === 1 || index === 2) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.7,
-          y: -50,
-          x: 0,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-      if (index === 5 || index === 6) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.8,
-          y: 50,
-          x: 0,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-      if (index === 4) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.5,
-          y: 50,
-          x: -50,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-      if (index === 7) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.5,
-          y: 50,
-          x: 50,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-
-      if (index === 3) {
-        gsap.from(el, {
-          duration: 0.35,
-          opacity: 0,
-          delay: 0.9,
-          y: -50,
-          x: 50,
-          stagger: { amount: 0.18 },
-          scrollTrigger: {
-            trigger: '.showcase',
-            id: 'about',
-            start: 'top bottom-=150px',
-            ease: 'sine.out',
-          },
-        });
-      }
-    });
-
-    // Menu animations
-    gsap.from(aniMenuTitle.current, {
-      duration: 0.5,
-      opacity: 0,
-      y: 80,
-      scrollTrigger: {
-        id: 'Menu',
-        trigger: aniMenuItemsLeft.current,
-        start: 'top center+=500px',
-        ease: 'sine.out',
-      },
-    });
-
-    gsap.from(
-      [
-        aniMenuSubTitle.current,
-        aniMenuItemsLeft.current,
-        aniMenuItemsRight.current,
-      ],
-      {
-        delay: 0.6,
-        duration: 0.5,
-        opacity: 0,
-        y: 100,
-        stagger: { amount: 0.3 },
-        scrollTrigger: {
-          id: 'menu-items',
-          trigger: aniMenuItemsLeft.current,
-          start: 'top bottom+=80px',
-          ease: 'sine.out',
-        },
-      }
-    );
-
-    gsap.from(
-      [
-        aniMenuSubTitle2.current,
-        aniMenuItemsLeft2.current,
-        aniMenuItemsRight2.current,
-      ],
-      {
-        opacity: 0,
-        delay: 0.6,
-        duration: 0.5,
-        y: 100,
-        stagger: { amount: 0.3 },
-        scrollTrigger: {
-          id: 'menu-items',
-          trigger: aniMenuItemsLeft2.current,
-          start: 'top bottom+=80px',
-          ease: 'sine.out',
-        },
-      }
-    );
-
-    // Animate images
-    gsap.from([aniPastaIMG.current, ...aniLeavesIMG.current], {
-      duration: 1,
-      opacity: 0,
-      x: 200,
-      stagger: 0.15,
-      scrollTrigger: {
-        id: 'pasta',
-        trigger: aniPastaIMG.current,
-        start: 'top center+=200px',
-      },
-    });
-
-    gsap.from(aniTomatoIMG.current, {
-      duration: 1,
-      opacity: 0,
-      x: -200,
-      stagger: 0.15,
-      scrollTrigger: {
-        id: 'tomato',
-        trigger: aniTomatoIMG.current,
-        start: 'top center+=200px',
-      },
-    });
-
-    gsap.from(aniForkIMG.current, {
-      duration: 1,
-      opacity: 0,
-      x: 200,
-      stagger: 0.15,
-      scrollTrigger: {
-        id: 'tomato',
-        trigger: aniForkIMG.current,
-        start: 'top center+=200px',
-      },
+    menuImagesAnimation({
+      aniPastaIMG,
+      aniLeavesIMG,
+      aniTomatoIMG,
+      aniForkIMG,
     });
   });
 
