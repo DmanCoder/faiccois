@@ -5,9 +5,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const aboutAnimation = ({ aniAbout }) => {
   gsap.from(aniAbout.current, {
-    duration: 1,
-    y: 250,
-    stagger: { amount: 0.3 },
+    duration: .5,
+    y: 210,
+    stagger: { amount: 0.2 },
     scrollTrigger: {
       trigger: '.about',
       id: 'about',
