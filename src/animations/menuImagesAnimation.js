@@ -11,10 +11,11 @@ export const menuImagesAnimation = ({
 }) => {
   // Animate images
   gsap.from([aniPastaIMG.current, ...aniLeavesIMG.current], {
-    duration: 1,
+    duration: 1.5,
     opacity: 0,
     x: 200,
     stagger: 0.15,
+    rotation: 90,
     scrollTrigger: {
       id: 'pasta',
       trigger: aniPastaIMG.current,
